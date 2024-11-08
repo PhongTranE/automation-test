@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.12.2 on win32)" generated="2024-11-08T01:02:25.395047" rpa="false" schemaversion="5">
+<suite id="s1" name="Testfile" source="d:\Test\Automation\TEST\Testfile.robot">
+<test id="s1-t1" name="Open Browser Example" line="20">
+<kw name="Launch Browser" owner="Autofuntion">
+<msg time="2024-11-08T01:02:40.981513" level="INFO">Khoi dong tring duyet va clear cache oki</msg>
+<arg>${url}</arg>
+<status status="PASS" start="2024-11-08T01:02:32.767010" elapsed="8.216503"/>
+</kw>
+<kw name="Login" owner="Autofuntion">
+<msg time="2024-11-08T01:02:40.984513" level="INFO">Start funtion login</msg>
+<msg time="2024-11-08T01:02:46.400769" level="INFO">click();, btn_login</msg>
+<msg time="2024-11-08T01:02:46.401773" level="INFO">Verify login thanh công hay chưa</msg>
+<msg time="2024-11-08T01:02:46.781935" level="INFO">Login Unsuccessfully, please check again</msg>
+<msg time="2024-11-08T01:02:51.782891" level="INFO">Function login successfully</msg>
+<arg>user@example.com</arg>
+<arg>123456789</arg>
+<status status="PASS" start="2024-11-08T01:02:40.983513" elapsed="10.799378"/>
+</kw>
+<kw name="Add Products To Cart" owner="Autofuntion">
+<msg time="2024-11-08T01:02:51.784894" level="INFO">Start function add_products_to_cart</msg>
+<msg time="2024-11-08T01:02:51.893892" level="INFO">Found element with text: SHOP ALL, clicking...</msg>
+<msg time="2024-11-08T01:02:52.023892" level="INFO">Clicked on SHOP ALL</msg>
+<msg time="2024-11-08T01:02:52.024893" level="INFO">Start function choose_products</msg>
+<msg time="2024-11-08T01:02:52.024893" level="INFO">range: 0</msg>
+<msg time="2024-11-08T01:02:52.602433" level="INFO">Product matches: HADES STRIPED SOLID SHIRT</msg>
+<msg time="2024-11-08T01:02:52.610430" level="INFO">Product matches: execute_script</msg>
+<msg time="2024-11-08T01:03:02.633567" level="INFO">Start function add_to_cart</msg>
+<msg time="2024-11-08T01:03:18.264432" level="INFO">Clicked 'Add to Cart' button successfully.</msg>
+<msg time="2024-11-08T01:03:18.264432" level="INFO">Start function verify_products_in_shopping_cart</msg>
+<msg time="2024-11-08T01:03:28.280513" level="INFO">Không tìm thấy phần tử với text GIỎ HÀNG, sẽ click vào GIỎ HÀNG qua XPATH_CART</msg>
+<msg time="2024-11-08T01:03:28.281512" level="INFO">Tiếp tục với các bước xử lý sau khi thêm vào giỏ hàng</msg>
+<msg time="2024-11-08T01:03:28.475507" level="INFO">click xpath_cart oki</msg>
+<msg time="2024-11-08T01:03:28.475507" level="INFO">Verify name product in shopping cart</msg>
+<msg time="2024-11-08T01:03:28.519508" level="INFO">name_product 123 : HADES STRIPED SOLID SHIRT</msg>
+<msg time="2024-11-08T01:03:28.532506" level="INFO">shop_all_elements 123 : HADES STRIPED SOLID SHIRT</msg>
+<msg time="2024-11-08T01:03:28.548034" level="INFO">Found element with text: HADES STRIPED SOLID SHIRT</msg>
+<msg time="2024-11-08T01:03:28.549033" level="INFO">Function verify_products_in_shopping_cart successfully</msg>
+<msg time="2024-11-08T01:03:28.549033" level="INFO">Start function visit_the_cart</msg>
+<msg time="2024-11-08T01:03:38.561957" level="INFO">Mở trang xem giỏ hàng</msg>
+<msg time="2024-11-08T01:03:38.832654" level="INFO">click xpaXEM GIỎ HÀNG oki</msg>
+<msg time="2024-11-08T01:03:38.832654" level="INFO">Start function verify_name_product_in_my_cart</msg>
+<msg time="2024-11-08T01:03:48.847514" level="INFO">Đã tìm thấy sản phẩm cần tìm trong Giỏ hàng của bạn</msg>
+<msg time="2024-11-08T01:03:48.867514" level="INFO">Product HADES STRIPED SOLID SHIRT exits in my cart</msg>
+<msg time="2024-11-08T01:03:48.867514" level="INFO">Start function verify_prices_product_in_my_cart</msg>
+<msg time="2024-11-08T01:03:58.868354" level="INFO">name_product_in_my_cart: //h6[text()='HADES STRIPED SOLID SHIRT']</msg>
+<msg time="2024-11-08T01:03:58.895355" level="INFO">name_product_in_my_cart: &lt;selenium.webdriver.remote.webelement.WebElement (session="5b0ae7408e4f1a531bbf2765fabe4c73", element="f.2A948A4F4541F42C51C749E02908B266.d.A5C0CBA5B831ACFEEC7BCA760787EAE4.e.129")&gt;</msg>
+<msg time="2024-11-08T01:03:58.895355" level="INFO">price_product product 123: //h6[text()='HADES STRIPED SOLID SHIRT']/../..//div[@class= 'col-2 text-center align-self-center']/p[@_ngcontent-ng-c1369544179]</msg>
+<msg time="2024-11-08T01:03:58.920355" level="INFO">price_product product &lt;selenium.webdriver.remote.webelement.WebElement (session="5b0ae7408e4f1a531bbf2765fabe4c73", element="f.2A948A4F4541F42C51C749E02908B266.d.A5C0CBA5B831ACFEEC7BCA760787EAE4.e.129")&gt; is : 432000 and type is &lt;class 'int'&gt;</msg>
+<msg time="2024-11-08T01:03:58.920355" level="INFO">quantity_product 123: //h6[text()='HADES STRIPED SOLID SHIRT']/../..//input[@aria-valuenow]</msg>
+<msg time="2024-11-08T01:03:59.052337" level="INFO">type number quantity: &lt;class 'NoneType'&gt;</msg>
+<msg time="2024-11-08T01:03:59.053337" level="INFO">number_quantity product &lt;selenium.webdriver.remote.webelement.WebElement (session="5b0ae7408e4f1a531bbf2765fabe4c73", element="f.2A948A4F4541F42C51C749E02908B266.d.A5C0CBA5B831ACFEEC7BCA760787EAE4.e.129")&gt; is : None and type is &lt;class 'NoneType'&gt;</msg>
+<msg time="2024-11-08T01:03:59.053337" level="INFO">TONG_TIEN 123: //h6[@class='me=0']</msg>
+<msg time="2024-11-08T01:03:59.082335" level="INFO">type_total_amount is &lt;class 'int'&gt;</msg>
+<msg time="2024-11-08T01:03:59.082335" level="INFO">int(price_product): 432000 * int(number_quantity): 2 == int(total_amount) 864000 is: 864000</msg>
+<msg time="2024-11-08T01:03:59.082335" level="INFO">Total amount is {total_amount} = prices * quantity</msg>
+<msg time="2024-11-08T01:03:59.082335" level="INFO">verify_prices_product_in_my_cart successfully</msg>
+<msg time="2024-11-08T01:03:59.082335" level="INFO">Start function checkout</msg>
+<msg time="2024-11-08T01:04:09.137985" level="INFO">btn thanh toán :  THANH TOÁN</msg>
+<msg time="2024-11-08T01:04:09.138507" level="INFO">start clcik button Thanh toán</msg>
+<msg time="2024-11-08T01:04:09.138507" level="INFO">Clicked = JS</msg>
+<msg time="2024-11-08T01:04:09.221361" level="INFO">Clicked on the checkout button</msg>
+<msg time="2024-11-08T01:04:09.221361" level="INFO">Đã tìm thấy phần tử với text GIỎ HÀNG
+//h6[text()='HADES STRIPED SOLID SHIRT']
+//h6[text()='HADES STRIPED SOLID SHIRT']</msg>
+<arg>${name_product}</arg>
+<arg>${quantity}</arg>
+<status status="PASS" start="2024-11-08T01:02:51.784894" elapsed="77.437465"/>
+</kw>
+<kw name="Fill Checkout Form" owner="Autofuntion">
+<msg time="2024-11-08T01:04:09.224361" level="INFO">Start filling checkout form</msg>
+<msg time="2024-11-08T01:04:14.719681" level="INFO">Start filling check_option_province_ward_city</msg>
+<msg time="2024-11-08T01:04:15.410061" level="INFO">Start choose province</msg>
+<msg time="2024-11-08T01:04:15.411063" level="INFO">Clicked options_tinh_thanh</msg>
+<msg time="2024-11-08T01:04:15.420062" level="INFO">options_tinh_thanh: 'An Giang' </msg>
+<msg time="2024-11-08T01:04:15.420062" level="INFO">tinh_thanh: 'An Giang' </msg>
+<msg time="2024-11-08T01:04:15.542061" level="INFO">Clicked quan_huyen</msg>
+<msg time="2024-11-08T01:04:15.583062" level="INFO">Start choose district</msg>
+<msg time="2024-11-08T01:04:15.598061" level="INFO">options_quanhuyen: 'Chọn quận / huyện' </msg>
+<msg time="2024-11-08T01:04:15.599062" level="INFO">quan huyen: 'Châu Đốc' </msg>
+<msg time="2024-11-08T01:04:15.631061" level="INFO">options_quanhuyen: 'An Phú' </msg>
+<msg time="2024-11-08T01:04:15.631061" level="INFO">quan huyen: 'Châu Đốc' </msg>
+<msg time="2024-11-08T01:04:15.653064" level="INFO">options_quanhuyen: 'Châu Phú' </msg>
+<msg time="2024-11-08T01:04:15.653064" level="INFO">quan huyen: 'Châu Đốc' </msg>
+<msg time="2024-11-08T01:04:15.681062" level="INFO">options_quanhuyen: 'Châu Thành' </msg>
+<msg time="2024-11-08T01:04:15.681062" level="INFO">quan huyen: 'Châu Đốc' </msg>
+<msg time="2024-11-08T01:04:15.703065" level="INFO">options_quanhuyen: 'Châu Đốc' </msg>
+<msg time="2024-11-08T01:04:15.704062" level="INFO">quan huyen: 'Châu Đốc' </msg>
+<msg time="2024-11-08T01:04:15.855026" level="INFO">Clicked phuong_xa_field</msg>
+<msg time="2024-11-08T01:04:15.896496" level="INFO">Start choose ward</msg>
+<msg time="2024-11-08T01:04:18.907063" level="INFO">options_phuong xa: 'Chọn phường / xã' </msg>
+<msg time="2024-11-08T01:04:18.907063" level="INFO">phuong xa: 'Châu Phú A' </msg>
+<msg time="2024-11-08T01:04:18.930063" level="INFO">options_phuong xa: 'Châu Phú A' </msg>
+<msg time="2024-11-08T01:04:18.931062" level="INFO">phuong xa: 'Châu Phú A' </msg>
+<msg time="2024-11-08T01:04:24.964411" level="INFO">click phuong xa ok</msg>
+<msg time="2024-11-08T01:04:29.966125" level="INFO">Start filling confirm_order</msg>
+<msg time="2024-11-08T01:04:33.026127" level="INFO">start Clicked 'Hoàn tất đơn hàng' button</msg>
+<msg time="2024-11-08T01:04:36.051507" level="INFO">Clicked 'Hoàn tất đơn hàng' button successfully</msg>
+<msg time="2024-11-08T01:04:41.052413" level="INFO">Function fill_checkout_form successfully</msg>
+<arg>${user_name}</arg>
+<arg>${mail}</arg>
+<arg>${number}</arg>
+<arg>${address}</arg>
+<arg>${province}</arg>
+<arg>${district}</arg>
+<arg>${ward}</arg>
+<status status="PASS" start="2024-11-08T01:04:09.223359" elapsed="31.829054"/>
+</kw>
+<kw name="Verify Order In My Account" owner="Autofuntion">
+<msg time="2024-11-08T01:04:41.053413" level="INFO">Verify verify_order_in_my_account</msg>
+<msg time="2024-11-08T01:05:01.337837" level="INFO">Curent date is : 2024-11-08</msg>
+<msg time="2024-11-08T01:05:01.371836" level="INFO">date_in_order is : 08-11-2024 01:04 AM, date_only: 08-11-2024</msg>
+<msg time="2024-11-08T01:05:01.372837" level="INFO">Curent date 2 is : 08-11-2024 type: &lt;class 'str'&gt;</msg>
+<msg time="2024-11-08T01:05:01.393836" level="INFO">user_in_order is : "phong tran 123" type &lt;class 'str'&gt;</msg>
+<msg time="2024-11-08T01:05:01.412834" level="INFO">phone_number_in_order is : "0999999999" type 0999999999</msg>
+<msg time="2024-11-08T01:05:01.435836" level="INFO">address_create_in_order is : "hcm city, Phường Châu Phú A, Thành phố Châu Đốc, Tỉnh An Giang" type hcm city, Phường Châu Phú A, Thành phố Châu Đốc, Tỉnh An Giang</msg>
+<msg time="2024-11-08T01:05:01.454835" level="INFO">total_amount_in_order is : "894000" type 894000 </msg>
+<msg time="2024-11-08T01:05:01.454835" level="INFO">full_address is : "hcm city, Phường Châu Phú A, Thành phố Châu Đốc, Tỉnh An Giang" </msg>
+<msg time="2024-11-08T01:05:01.455836" level="INFO">Start verify information in My account</msg>
+<msg time="2024-11-08T01:05:01.455836" level="INFO">Check date_only "08-11-2024" and &lt;class 'str'&gt; </msg>
+<msg time="2024-11-08T01:05:01.455836" level="INFO">Check total_amount_in_order "894000" and &lt;class 'str'&gt; </msg>
+<msg time="2024-11-08T01:05:01.455836" level="INFO">Check price "894000" and &lt;class 'str'&gt; </msg>
+<msg time="2024-11-08T01:05:06.464998" level="INFO">Matched information, verify_order_in_my_account successfully </msg>
+<arg>${user_name}</arg>
+<arg>${number}</arg>
+<arg>${address}</arg>
+<arg>${ward}</arg>
+<arg>${district}</arg>
+<arg>${province}</arg>
+<arg>${price}</arg>
+<status status="PASS" start="2024-11-08T01:04:41.053413" elapsed="25.413554"/>
+</kw>
+<kw name="Close Browser" owner="Autofuntion">
+<status status="PASS" start="2024-11-08T01:05:06.467966" elapsed="2.258141"/>
+</kw>
+<status status="PASS" start="2024-11-08T01:02:32.766011" elapsed="155.960096"/>
+</test>
+<status status="PASS" start="2024-11-08T01:02:25.400047" elapsed="167.383374"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Testfile">Testfile</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
