@@ -95,7 +95,7 @@ class Autofuntion():
         # Mở toàn màn hình
         self.driver.maximize_window()
         self.clear_cache()
-        logger.info("Khoi dong tring duyet va clear cache oki") 
+        logger.info("Khoi dong trinh duyet va clear cache oki") 
 
     def close_browser(self):
         self.driver.quit()
