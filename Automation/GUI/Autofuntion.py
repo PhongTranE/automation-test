@@ -40,7 +40,7 @@ class Autofuntion():
         self.XPATH_DIA_CHI = '//input[@placeholder="Địa chỉ"]'
         self.XPATH_TINH_THANH_PHO = '//select[@formcontrolname="province"]'
         self.XPATH_OPTION_TINH_THANH_PHO = '//option[@class="ng-star-inserted"]' # .text = "An Giang"/ "Bắc Giang" / "Bắc Ninh"
-        self.CSS_QUAN_HUYEN = 'id="district"'
+        # self.CSS_QUAN_HUYEN = 'id="district"'
         self.CSS_PHUONG_XA = '[id="ward"]'
         self.CSS_SHIP = 'id="shipping"'
         self.XPATH_PTVC_PTTT = '//label[@class="form-check-label"]'
@@ -220,12 +220,14 @@ class Autofuntion():
 
             # Tìm phần tử cha chứa giá tiền từ `name_product_in_my_cart`
             logger.info(f'TONG_TIEN 123: {self.TONG_TIEN}')
+            # ADD TIME TO LOAD PRICE
+            time.sleep(5)
             total_amount = name_product_in_my_cart.find_element(By.XPATH, self.TONG_TIEN).text
 
             total_amount = int(total_amount.replace("đ", "").replace(",", "").strip())
             
             type_total_amount = type(total_amount)
-            logger.info(f"type_total_amount is {type_total_amount}")
+            logger.info(f"total_amount: {total_amount} AND type_total_amount is {type_total_amount}")
             
 
             #Xem thử số lượng nhân giá tiền có = tổng ko
@@ -370,7 +372,7 @@ class Autofuntion():
                 EC.element_to_be_clickable((By.CSS_SELECTOR, self.CSS_TINH_THANH_PHO))
             )
             tinh_thanh_field.click()
-            # time.sleep(5)
+            time.sleep(5)
             options_tinh_thanh = WebDriverWait(self.driver, timeout).until(
                 EC.visibility_of_all_elements_located((By.XPATH, self.XPATH_OPTIONS_TINH_THANH_PHO))
             )
@@ -379,9 +381,10 @@ class Autofuntion():
                 logger.info("Clicked options_tinh_thanh")
                 logger.info(f"options_tinh_thanh: '{option.text}' ")
                 logger.info(f"tinh_thanh: '{tinh_thanh}' ")
-                # time.sleep(5)
+                time.sleep(5)
                 if option.text == tinh_thanh:
                     option.click()  
+                    time.sleep(5)
                     break
 
             # Select "Quận/Huyện"
@@ -392,18 +395,28 @@ class Autofuntion():
 
             quan_huyen_field.click()
             logger.info("Clicked quan_huyen")
-            # time.sleep(3)
-
+            time.sleep(3)
+            # Mới thêm:
             # Select "Châu Đốc" in Quận huyện (District) dropdown
             district_select = self.driver.find_element(By.CSS_SELECTOR, self.CSS_QUAN_HUYEN)
             district_options = district_select.find_elements(By.TAG_NAME, 'option')
+            if len(district_options) == 1 and district_options[0].text.strip() == "Chọn quận / huyện":
+                for i in range(5):
+                    logger.info(f"range time ward_options {i}")
+                    quan_huyen_field.click()
+                    time.sleep(2)
+                    district_options = district_select.find_elements(By.TAG_NAME, 'option')
+                    if len(district_options) > 1:
+                        logger.info(f"len option is {len(district_options)}")
+                        break
+
             logger.info("Start choose district")
-            # time.sleep(5)
+            time.sleep(5)
             for option in district_options:  # Reuse options if needed
                 logger.info(f"options_quanhuyen: '{option.text}' ")
                 logger.info(f"quan huyen: '{quan_huyen}' ")
                 if option.text.strip() == quan_huyen:
-                    # time.sleep(5)
+                    time.sleep(5)
                     option.click()
                     break
 
@@ -413,26 +426,39 @@ class Autofuntion():
             )
             phuong_xa_field.click()
             logger.info("Clicked phuong_xa_field")
-            # time.sleep(3)
+            time.sleep(4)
 
             # Select "Châu Phú A" in Phường xã (Ward) dropdown
             ward_select = self.driver.find_element(By.CSS_SELECTOR, '[id="ward"]')
             ward_options = ward_select.find_elements(By.TAG_NAME, 'option')
-            logger.info("Start choose ward")
+            hoan_tat_don_hang_button = WebDriverWait(self.driver, timeout).until(
+            EC.element_to_be_clickable((By.XPATH, self.XPATH_HOAN_TAT_DON_HANG))
+            )
+            logger.info("start Clicked 'Hoàn tất đơn hàng' button")
             time.sleep(3)
+            self.driver.execute_script("arguments[0].scrollIntoView({ behavior: 'smooth', block: 'center' });", hoan_tat_don_hang_button)
+
+            # moi them
+            if len(ward_options) == 1 and ward_options[0].text.strip() == "Chọn phường / xã":
+                for i in range(5):
+                    logger.info(f"range time ward_options {i}")
+                    phuong_xa_field.click()
+                    time.sleep(5)
+                    ward_options = ward_select.find_elements(By.TAG_NAME, 'option')
+                    if len(ward_options) > 1:
+                        logger.info(f"len ward_options is {len(ward_options)}")
+                        break
+
+            logger.info("Start choose ward")
+            time.sleep(5)
             for option in ward_options:  # Reuse options if needed
                 logger.info(f"options_phuong xa: '{option.text}' ")
                 logger.info(f"phuong xa: '{phuong_xa}' ")
                 if option.text.strip() == phuong_xa:
-                    time.sleep(3)
-                    # option.click()
-                    # self.driver.execute_script("arguments[0].scrollIntoView({ behavior: 'smooth', block: 'center' });", option)
-                    # self.driver.execute_script("arguments[0].click();", option)
-                    time.sleep(3)
+                    time.sleep(5)
                     option.click()
-                    logger.info(f"click phuong xa ok")
-                    # break
-                    return True
+                    break
+            return True
         
         except Exception as e:
             logger.error(f'Error in check_option_province_ward_city: {e}')
@@ -526,7 +552,7 @@ class Autofuntion():
             )
             time.sleep(5)
             btn_login.click()
-            logger.info("click();, btn_login")
+            logger.info("click() btn_login")
 
             self.verify_login(timeout)
 
